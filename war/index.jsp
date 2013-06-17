@@ -20,20 +20,17 @@
 
  
   <body>
-  <div id="test">
+  <div id="testik">
   <%UserService userService = UserServiceFactory.getUserService();
   if (request.getUserPrincipal() != null) {  
-      response.getWriter().println("<p>Hello, " +
+      response.getWriter().println("Hello, "+
               request.getUserPrincipal().getName() +
-              "!  You can <a href=\"" +
-              userService.createLogoutURL("/") +
-              "\">sign out</a>.</p>");
+              " " +
+              userService.createLogoutURL(request.getRequestURI()) );
 } else {
-response.getWriter().println("<p>Please <a href=\"" +
-              userService.createLoginURL("/") +
-              "\">sign in</a>.</p>");
-}%>
-  </div>
+response.getWriter().println(
+              userService.createLoginURL("/"));
+}%></div>
 <div id="header"></div>
 <div id="log"></div>
     
