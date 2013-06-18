@@ -8,9 +8,9 @@
   if (request.getUserPrincipal() != null) { 
 	  userName=request.getUserPrincipal().getName();
       exit =userService.createLogoutURL("/");
-} else 
-        enter=userService.createLoginURL("/");
-%>
+     
+} else {
+        enter=userService.createLoginURL("/");}%>
 <!doctype html>
 <html>
   <head>
