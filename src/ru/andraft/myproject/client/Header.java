@@ -13,7 +13,7 @@ public class Header extends AbsolutePanel{
 protected void onLoad(){
 	 super.onLoad(); 
 	 String msg = Cookies.getCookie("Data");
-	 last.setText("Дата входа ");
+	 last.setText("Дата входа "+msg);
 	 this.add(last);
  }
 protected void onUnload(){

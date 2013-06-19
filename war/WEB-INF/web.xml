@@ -14,15 +14,7 @@
     <servlet-name>greetServlet</servlet-name>
     <url-pattern>/chyshok/greet</url-pattern>
   </servlet-mapping>
-  
-  <servlet>
-    <servlet-name>Entering</servlet-name>
-    <servlet-class>ru.andraft.myproject.server.Entering</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>Entering</servlet-name>
-    <url-pattern>/Entering</url-pattern>
-  </servlet-mapping>
+
   <!-- Default page to serve -->
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
