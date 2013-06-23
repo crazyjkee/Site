@@ -32,7 +32,6 @@ import com.google.gwt.user.client.ui.AbsolutePanel;
 	    	Label labka;
 	    public Menushka() {	  
 	        Canvas main = new Canvas();
-	      
 	        for(int i=0;i<COURSES.length;i++){
 	        	coursesMenuItem1[i]=new MenuItem(COURSES[i]);
 	        	coursesMenuItem2[i]=new MenuItem(COURSES[i]);
@@ -109,7 +108,6 @@ import com.google.gwt.user.client.ui.AbsolutePanel;
 	        this.add(main);	    	  
 	    }
 	    private static MenuItem[] getItemSemester() {  
-	  	  
 	        MenuItem[] i = new MenuItem[4];  
 	        i[0] = new MenuItem("Первый семестр");  
 	        i[1] = new MenuItem("Второй семестр");  
