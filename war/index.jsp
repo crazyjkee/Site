@@ -28,9 +28,8 @@
   <body>
   <div id="enter"><%=userName+" "+exit+" "+enter %></div>
 <div id="header"></div>
-<div id="log"></div>
 <div id="test"></div>
-    
+<div id="lalka"></div>
     
   </body>
 </html>

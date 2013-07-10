@@ -2,20 +2,16 @@ package ru.andraft.myproject.client;
 
 import com.smartgwt.client.util.SC;  
 import com.smartgwt.client.widgets.Canvas;  
-import com.smartgwt.client.widgets.Label;
 import com.smartgwt.client.widgets.menu.IMenuButton;  
 import com.smartgwt.client.widgets.menu.Menu;   
 import com.smartgwt.client.widgets.menu.MenuItem;  
 import com.smartgwt.client.widgets.menu.events.ItemClickEvent;  
 import com.smartgwt.client.widgets.menu.events.ItemClickHandler;  
 import com.smartgwt.client.widgets.menu.events.MenuItemClickEvent;
-import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.AbsolutePanel;
-	  //РАБОТАЕТ,ОПТИМИЗИРУЮ ОБЯЗАТЕЛЬНО !!!11
-//<inherits name="com.smartgwt.SmartGwt"/> 
-
-	public class Menushka extends AbsolutePanel {  
+	public class Menushka extends AbsolutePanel {
+		String getTit;
 		String MARK = "Marketing";
 		private static final String [] COURSES = {"1 Курс","2 Курс","3 Курс","4 Курс"};
 		MenuItem[] coursesMenuItem1 = new MenuItem[COURSES.length];
@@ -26,10 +22,9 @@ import com.google.gwt.user.client.ui.AbsolutePanel;
 		String MAN = "Manufacturing";
 		String SERV = "Services";
 		IMenuButton bDirection;
-		boolean Semest = false;
-	        Menu mDirection ;
-	    	IMenuButton bCategory;
-	    	Label labka;
+	    Menu mDirection ;
+	    IMenuButton bCategory;
+	    boolean Semest = false;
 	    public Menushka() {	  
 	        Canvas main = new Canvas();
 	        for(int i=0;i<COURSES.length;i++){
@@ -91,9 +86,8 @@ import com.google.gwt.user.client.ui.AbsolutePanel;
 	        mAbout.addItemClickHandler(new ItemClickHandler() {  
 	            public void onItemClick(ItemClickEvent event) {  
 	                MenuItem item = event.getItem();  
-	                SC.say("You picked the \""  
-	                        + item.getAttributeAsString("categoryName")  
-	                        + "\" category.");  
+	                SC.say(item.getTitle());
+	                
 	            }  
 	        });  
 	  
@@ -105,7 +99,8 @@ import com.google.gwt.user.client.ui.AbsolutePanel;
 	        main.addChild(cCategory);
 	        main.setLeft(Window.getClientWidth()/2-195);
 	        main.draw(); 
-	        this.add(main);	    	  
+	        this.add(main);	
+	       // this.add(labmen);
 	    }
 	    private static MenuItem[] getItemSemester() {  
 	        MenuItem[] i = new MenuItem[4];  
@@ -127,14 +122,20 @@ import com.google.gwt.user.client.ui.AbsolutePanel;
         com.smartgwt.client.widgets.menu.events.ClickHandler handler=new com.smartgwt.client.widgets.menu.events.ClickHandler() {
 	        	
 	            public void onClick(MenuItemClickEvent event) {
-	                bDirection.setTitle(s+" "+event.getItem().getTitle());
-	                bCategory.setDisabled(false);} 
+	            	MenuItem item = event.getItem();  
+	                bDirection.setTitle(s+" "+item.getTitle());
+	                bCategory.setDisabled(false);
+	                bCategory.setTitle("Семестр");
+	                getTit=s+" "+item.getTitle();
+	                Chyshok.label.setText(getTit);
+	                
+	            } 
 	        };
+	        
 	        for(MenuItem m:g)
 	            	m.addClickHandler(handler);
 	    }
-		
-	    		
+ 		
 	    	
 	    }
 	  
